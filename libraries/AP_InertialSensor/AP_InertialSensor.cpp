@@ -787,6 +787,11 @@ AP_InertialSensor::detect_backends(void)
                                                     hal.spi->get_device("bmi055_a"),
                                                     hal.spi->get_device("bmi055_g"),
                                                     ROTATION_ROLL_180_YAW_90));
+        ADD_BACKEND(AP_InertialSensor_BMI088::probe(*this,
+                                                hal.spi->get_device("bmi088_a"),
+                                                hal.spi->get_device("bmi088_g"),
+                                                ROTATION_ROLL_180_YAW_90));
+        ADD_BACKEND(AP_InertialSensor_Invensensev2::probe(*this, hal.spi->get_device("icm20649"), ROTATION_NONE));                                                   
         break;
         
     case AP_BoardConfig::PX4_BOARD_SP01:
